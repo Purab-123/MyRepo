@@ -1,0 +1,152 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+#navbar {
+    width: 1520px;
+    height:45px;
+    background-color: #e2e6f7;
+    padding: 5px;
+    color:#010f2e
+}
+button {
+    background-color: #0a1220;
+    color: white;
+}
+button:hover{
+    color: #f08804;
+}
+#logo {
+    color: #0a1220;
+    font-size: 25px;
+    font-family: fantasy;
+    margin-right: 690px;
+
+}
+#sub{
+    margin-right: 20px;
+    padding: 25px;
+    text-decoration: none;
+    color: #0a1220;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+}
+footer{
+    background-color: #0f0f0f;
+    color: white;
+    text-align: center;
+}
+.contentbox{
+    height: 600px;
+    width: 1520px;
+    background-image: url(main.jpg);
+    background-size: cover;
+
+}
+p{
+    color: rgb(204, 218, 249);
+    font-size: 85px;
+}
+#place{
+    height:50px;
+    width: 250px;
+    border-radius: 3%;
+    background-color: rgb(255, 255, 255);
+    color: #0f0f0f;
+    border: 2px solid #f08804;
+    transition-property: all;
+    transition-duration: 1s;
+    
+    
+}
+.content{
+    height: 800px;
+    background-color: #0f0f0f;
+    
+}
+#book{
+    width: 100px;
+    height: 100px;
+    color: blue;
+    font-size: 20px;
+    font-family: serif;
+    padding: 150px;
+    display: flex;
+    gap: 150px; 
+    align-items: center; 
+    margin: 50px;
+  
+}
+#date{
+    height: 50px;
+    width: 250px;
+    font-size: 15px;
+    border: 2px solid #f08804;
+    border-radius: 3%;
+    transition-property: all;
+    transition-duration: 1s;
+}
+#people{
+    height: 50px;
+    width: 250px;
+    font-size: 15px;
+    border: 2px solid #f08804;
+    border-radius: 3%;
+    transition-property: all;
+    transition-duration: 1s;
+}
+#place:hover{
+    font-size: 15px;
+    background-color: #99a7e8;
+    border: 2px solid black;
+}
+#date:hover{
+    font-size: 15px;
+    background-color:#99a7e8;
+    border: 2px solid black;
+}
+#people:hover{
+    font-size: 15px;
+    background-color: #99a7e8;
+    border: 2px solid black;
+}
+
+#placeHolder{
+    padding:3px;
+}
+.container {
+    display: flex;
+    gap: 10px; 
+    justify-content: center; 
+    
+  }
+  
+  .box {
+    flex: 1;
+    max-width: 200px; 
+  }
+  .box img:hover{
+    height: 220px;
+    width: 220px;
+    transform: scale(1.1); 
+  }
+  
+  .box img {
+    width: 100%; 
+    height: auto; 
+  }
+  #acc{
+    height: 75px;
+    width: 75px;
+    background-image: url(browser.png);
+    background-size: cover;
+  }
+#mail{
+    height:10px ;
+    width: 50px;
+    color: #0f0f0f;
+   display: contents;
+}
+#sub:hover{
+    color: #f08804;
+}
