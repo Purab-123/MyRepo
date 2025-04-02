@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: url(nightsky.jpg);
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background-color: rgba(134, 131, 160, 0.1);
+            color: #dadbdb;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+        .container img {
+    display: block;
+    margin: 10px auto;
+}
+        input, button {
+            padding: 10px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Weather App</h2>
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAE3ElEQVR4nO1b32scVRT+svVBRa32B+TBH6jgg/pgG8WlmXOuNH+AVo1os2oRfBLBEENbENwnKQWfCqLVYEEFX3wQi78i9SUgiKh9rPjQlqCEPpjuuZvUmmTlNjPJzezszs5mZvZOth8cMsy5ufee75773Tt3ZoHNYwDAGIAKgG3oQ1QANHz7AcBghm3dAOB+n3RnMGYRYOxvAPszaOceAL/5bXwEhzAA4G0ASxYJ5voEgMO+jW5y1IYBzFn1/wkHsd8f/UYLe6XLel8CcMWqx1w/A0cx6OtAFAFnOqzjWStzPgzVMedng9PYBuBFAMcAHLemxlIHAhnWE9vO+jpQOPxoBXEKQKlN2TMtgv8SwC0oKF4OBTPVgoTBULYc97OoEkOa8yj5QbcjoeRnR+A3WbOlUGpDQpTvELYgSi1IiMuOXFEGMG4tQ2nb0dCGJmxzfpms2jexPR4V+O0Avm7Tsa1mpwFstwnop+AD+8pO++DmMoBP/OWnKDZj9X8mpqyJbcUq/5ghYMK6YQoUDVWr/+Y6Dp9a5ce7qcA1RPW/5G+gAvGrWE+jTeWrLQgIV9LO7AbyRlT/7UOawMaSElBJKCpBA3njOgFoHsDgnDIQv4PdTIGBUCXtzG4gbyTVsI4JQL+LYFGQmQaUYlaBWOUnWrhLKXmBSE8aM9dK1e/cSqvAWFSPPK8+RKS/Z5YVZt3YaOaefMes97gugpVuCCDSbxLJUnPgG41I/vM8Gc+IgETlq12uAk3KzywT0QHLBSL5mVnqEUS8sSVEkEjvjR55uaBU40ZTxvwlkteYdc3OBKX0Iy5qQCIwy7etRj8gYL2s3hMiwTyOF4+AkZHLO5nlOSJ9lFmWW895ucisP1dKngj+1/Pkdcu/TKSPKCWj5fL8DldEsCU8r7abSKaY5Wqc2IXm+xJRjU0dQ0ONm4lkMYKsq0Ry0rQBF3eCSsnDRDKbJPCNJOgvgrqY9bl2WTM8LA85RYBStV3M8le3wQeiZ9KdWd6xdYJZfmGWf8MkmDadIYCupX33wceJpJn/RPJBiLCTThCgVG0XkVzJkgCL6DUSjE543vwdPSeAufZ0+sHbq4ScUkoPWquLJbD1Az0ngEhPZkfAGhEfr7cnv1rCOekCAUdyIODadCiXGzf5e4fg/kTPCVBKRrMnYG06WMGbDKg/2WFA0x0c4E53RUC5PL+jeZnKhZCFmN2h3f+kVk2UQmZJypsAIv1euz7lSoDn1XavblpyG/2LMUtguP8zCV+lVRMR4JPwIJGcz37k5bznXX7AyVPhkdV1+v3oh5lNB75o0r6Dke8dAQHMAaf9GEyk3yWSY4Ex6xOh+dzW73nyvFL/mG8VkiCfVSB+dyi/N/vrBzr1E4n5Drgb5CeC7R6OiOQns2HxvMX70vIXgYDZiHl8Li1/FwRkvwrYINJ/RIjYbFp+50WQaPFeIv2Wmb9WAFNp+QtzLM6sz64ref2ptP1OH4sPDy/cHbwCMwcm+/ZdujVNv/MEKKVftdL3m7T9Th6L2yCSMWujcyhtv9MiuIrGALMcNK++zTVS9xdABHuM3mqAA7hOADYpghP9/qls2bqx4hc4XCCbTvA4/FnoY+lHA1ZOb+KJqqhmfom2hu3+9/P9FPxtUfPDfD9vvtnp9W8AsjIT21raG/wPB1YE0ojp+J8AAAAASUVORK5CYII=" alt="Weather Icon">
+        <input type="text" id="location" placeholder="Enter location">
+        <button onclick="getWeather()">Get Weather</button>
+        <div id="weatherResult"></div>
+    </div>
+
+    <script>
+        async function getWeather() {
+            const location = document.getElementById('location').value;
+            if (!location) {
+                alert('Please enter a location');
+                return;
+            }
+            const apiKey = '455b5fb08fcc44149d343716250204';
+            const url = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${location}&aqi=yes`;
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                document.getElementById('weatherResult').innerHTML = `
+                    <h3>${data.location.name}, ${data.location.country}</h3>
+                    <p>Temperature: ${data.current.temp_c}°C</p>
+                    <p>Condition: ${data.current.condition.text}</p>
+                    <img src="${data.current.condition.icon}" alt="Weather Icon">
+                    <p>Air Quality Index: ${data.current.air_quality.pm2_5.toFixed(2)}</p>
+                `;
+            } catch (error) {
+                document.getElementById('weatherResult').innerHTML = '<p style="color: red;">Failed to fetch weather data</p>';
+            }
+        }
+    </script>
+</body>
+</html>
